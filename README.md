@@ -1,6 +1,8 @@
 php-shared-memory
 =================
 
+---
+
 Share variables across multiple PHP apps
 
 Sync
@@ -12,7 +14,8 @@ Because this class stores and restores its data every time a property is request
 your applications. And because PHP has a great built-in advisory lock feature, there could be as many applications as
 you want, there is no concurrent access to the synchronization file.
 
---------- Use cases
+Use cases
+--------- 
 
 Long-running tasks : when there is a long-running task run in background from a web application,
 this is diffcult to display progression information. With Sync, just set $sync->progress = x in your
@@ -23,7 +26,8 @@ several PHP tasks (forks, execs, ...), and keep control on resources and results
 no way for all children processes to communicate each other. Sync gives you a centralized data pool, where
 every processes can put about anything.
 
---------- How does it work ?
+How does it work ?
+--------- 
 
 PHP has magic methods:
 
@@ -47,7 +51,8 @@ So, Sync is working this way:
     When requiring a property of a Sync object, __get method restores the variable from that file and returns associated value.
     When assigning a new property of a Sync object, __set method restores the variable too, and sets a new property/value pair to it.
 
---------- Optimizations
+Optimizations
+--------- 
 
 Of course, if you have 150 processes working on the same file at the same time, your hard drive will slow down your processes.
 To handle this issue, if you're on a Linux system, you can create a filesystem partition on RAM.
