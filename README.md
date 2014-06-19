@@ -47,9 +47,9 @@ PHP can handle files, with concurrent-access management:
 
 So, Sync is working this way:
 
-    When constructing a new Sync, a file is required to store a \stdClass instance that will be serialized / unserialized.
-    When requiring a property of a Sync object, __get method restores the variable from that file and returns associated value.
-    When assigning a new property of a Sync object, __set method restores the variable too, and sets a new property/value pair to it.
+    - When constructing a new Sync, a file is required to store a \stdClass instance that will be serialized / unserialized.
+    - When requiring a property of a Sync object, __get method restores the variable from that file and returns associated value.
+    - When assigning a new property of a Sync object, __set method restores the variable too, and sets a new property/value pair to it.
 
 Optimizations
 --------- 
