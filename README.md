@@ -25,6 +25,27 @@ several PHP tasks (forks, execs, ...), and keep control on resources and results
 no way for all children processes to communicate each other. Sync gives you a centralized data pool, where
 every processes can put about anything.
 
+Installation
+--------- 
+
+If you're interested by the unit tests or the demonstrations, you can download the whole project.
+For a quick start, you can just download src/Sync.php
+
+Usage
+--------- 
+
+This class works the same way as `stdClass`, but you should give a file in its constructor. 
+This file will be used to store and retrieve your data, use the same file on several apps to get the same instance of a variable.
+
+```
+// something.php
+require_once("Sync.php");
+
+$obj = new Sync("shared.txt");
+$obj->foo = 'bar';
+$obj->hello = 'world';
+```
+
 How does it work ?
 --------- 
 
