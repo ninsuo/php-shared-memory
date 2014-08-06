@@ -7,7 +7,7 @@ Share variables across multiple PHP apps
 Sync
 Share variables across multiple PHP apps
 
-This class works like \stdClass, but one instance of Sync can be used simultaneously in several PHP applications.
+This class works like `\stdClass`, but one instance of Sync can be used simultaneously in several PHP applications.
 
 Because this class stores and restores its data every time a property is requested or set, data are always fresh between
 your applications. And because PHP has a great built-in advisory lock feature, there could be as many applications as
@@ -40,6 +40,7 @@ This file will be used to store and retrieve your data: use the same file on sev
 
 ```
 // something.php
+
 require_once("Sync.php");
 
 $obj = new Sync("shared.txt");
@@ -47,10 +48,11 @@ $obj->foo = 'bar';
 $obj->hello = 'world';
 ```
 
-Or a better demonstration (which use several php apps):
+Or a better demonstration (which uses several php apps):
 
 ```
 // demo/Sync.demo.1.php
+
 require("../src/Sync.php");
 
 $sync = new Sync("/tmp/demo.sync");
@@ -76,7 +78,6 @@ else
 // $
 
 ```
-
 
 How does it work ?
 --------- 
