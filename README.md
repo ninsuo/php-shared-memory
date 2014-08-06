@@ -29,6 +29,7 @@ Installation
 --------- 
 
 If you're interested by the unit tests or the demonstrations, you can download the whole project.
+
 For a quick start, you can just download src/Sync.php
 
 Usage
