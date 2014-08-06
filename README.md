@@ -47,6 +47,33 @@ $obj->foo = 'bar';
 $obj->hello = 'world';
 ```
 
+Or a better demonstration (which use several php apps):
+
+```
+// demo/Sync.demo.1.php
+require("../src/Sync.php");
+
+$sync = new Sync("/tmp/demo.sync");
+
+if (isset($argv[1]) === false)
+{
+    // master process (the one you launched)
+    $sync->hello = "foo, bar!\n";
+
+    $command = sprintf("/usr/bin/php %s demo", escapeshellarg($argv[0]));
+    exec($command);
+
+    echo $sync->hello;
+}
+else
+{
+    // child process
+    $sync->hello = "Hello, world!\n";
+}
+
+```
+
+
 How does it work ?
 --------- 
 
