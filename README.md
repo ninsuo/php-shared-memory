@@ -71,6 +71,10 @@ else
     $sync->hello = "Hello, world!\n";
 }
 
+// $ php demo/Sync.demo.1.php
+// Hello, world!
+// $
+
 ```
 
 
