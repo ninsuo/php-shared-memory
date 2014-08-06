@@ -36,7 +36,7 @@ Usage
 --------- 
 
 This class works the same way as `stdClass`, but you should give a file in its constructor. 
-This file will be used to store and retrieve your data, use the same file on several apps to get the same instance of a variable.
+This file will be used to store and retrieve your data: use the same file on several apps to get the same instance of a variable.
 
 ```
 // something.php
