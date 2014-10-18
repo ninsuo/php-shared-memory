@@ -25,11 +25,34 @@ every processes can put about anything.
 Installation
 ---------
 
-If you're interested by the unit tests or the demonstrations, you can download the whole project.
+If you want a standalone file to manage your shared memory, you can look at the `v1.5.0` release:
+https://github.com/ninsuo/php-shared-memory/releases/tag/v1.5.0
 
-For a quick project, you can use a standalone file (without Storage interface), look at the first project release.
+If you're building a real-life project, you'd better use Composer:
 
-For a real-life application, use Composer:
+1) install Composer
+
+If you have curl, you can use:
+
+`curl -sS https://getcomposer.org/installer | php`
+
+Else, you can use the PHP method instead:
+
+`php -r "readfile('https://getcomposer.org/installer');" | php`
+
+2) Add the following to your `composer.json`:
+
+```json
+{
+    "require": {
+        "ninsuo/php-shared-memory": "dev-master"
+    }
+}
+```
+
+3) Update
+
+`php composer.phar update`
 
 Usage
 ---------
@@ -38,6 +61,11 @@ This class works the same way as `stdClass`, but you should give a storage in it
 This storage will be used to store and retrieve your data: use the same storage on several apps to get the same instance of a variable.
 
 ```php
+
+require("vendor/autoload.php");
+
+use Fuz\Component\SharedMemory\Storage\StorageFile;
+use Fuz\Component\SharedMemory\SharedMemory;
 
 // On both apps
 $storage = new StorageFile('/tmp/demo.sync');
@@ -57,12 +85,7 @@ Or a complete working example:
 ```php
 <?php
 
-// demo/SharedMemory.demo.hello.php
-
-require("../src/SharedMemory.php");
-require("../src/Entity/StorageEntity.php");
-require("../src/Storage/StorageInterface.php");
-require("../src/Storage/StorageFile.php");
+require("vendor/autoload.php");
 
 use Fuz\Component\SharedMemory\SharedMemory;
 use Fuz\Component\SharedMemory\Storage\StorageFile;
