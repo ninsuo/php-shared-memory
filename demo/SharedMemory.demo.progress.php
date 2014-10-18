@@ -6,14 +6,21 @@
  * Roadmap :
  * - When you come to that page, you are invited to click on a "Start" button to launch a "long-running task".
  * - By clicking "Start", you exec() a simulation of long-running task that only sets progress percentages every 1sec
- * - When refreshing, you can see progression of your task using a simple echo $sync->percentage
+ * - When refreshing, you can see progression of your task using a simple echo $shared->percentage
  *
  * Should be run using a web browser
  */
 
-require("../src/Sync.php");
+require("../src/SharedMemory.php");
+require("../src/Entity/StoredEntity.php");
+require("../src/Storage/StorageInterface.php");
+require("../src/Storage/StorageFile.php");
 
-$sync = new Sync("/tmp/demo.sync");
+use Fuz\Component\SharedMemory\SharedMemory;
+use Fuz\Component\SharedMemory\Storage\StorageFile;
+
+$storage = new StorageFile('/tmp/demo.sync');
+$shared = new SharedMemory($storage);
 
 // Child process
 if (php_sapi_name() === 'cli')
@@ -21,10 +28,10 @@ if (php_sapi_name() === 'cli')
     // Simulates a long-running task
     for ($i = 0; ($i <=  100); $i++)
     {
-        $sync->percentage = $i;
+        $shared->percentage = $i;
         sleep(1);
     }
-    $sync->percentage = null;
+    $shared->percentage = null;
     die();
 }
 
@@ -43,7 +50,7 @@ if (isset($_POST['button']))
     die();
 }
 
-if (is_null($sync->percentage))
+if (is_null($shared->percentage))
 {
     // Long-running task not executed, displaying start button
 
@@ -64,6 +71,6 @@ else
 {
     // Long-running task executed, displaying progression
 
-    echo sprintf("Program still in progress: %d%% <br/>", $sync->percentage);
+    echo sprintf("Program still in progress: %d%% <br/>", $shared->percentage);
     echo '<a href="#" onclick="window.location.reload(); return false;">Refresh page</a>';
 }

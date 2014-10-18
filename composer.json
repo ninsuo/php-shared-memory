@@ -1,0 +1,21 @@
+{
+    "name": "ninsuo/php-shared-memory",
+    "type": "library",
+    "description": "Share variables across multiple PHP apps",
+    "keywords": [],
+    "homepage": "https://github.com/ninsuo/php-shared-memory",
+    "license": "The BSD 2-Clause License",
+    "authors": [
+        {
+            "name": "Alain Tiemblo",
+            "email": "alain@fuz.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-0": { "Fuz\\Component\\SharedMemory\\": "" }
+    },
+    "target-dir": "Fuz/Component/SharedMemory"
+}
