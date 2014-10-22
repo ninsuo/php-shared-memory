@@ -47,4 +47,9 @@ interface StorageInterface
      */
     public function close();
 
+    /**
+     * Storage name
+     */
+    public function getName();
+
 }

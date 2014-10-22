@@ -200,4 +200,9 @@ class StorageFile implements StorageInterface
         }
     }
 
+    public function getName()
+    {
+        return 'file';
+    }
+
 }
