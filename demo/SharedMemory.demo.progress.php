@@ -32,7 +32,7 @@ if (php_sapi_name() === 'cli')
         sleep(1);
     }
     $shared->percentage = null;
-    die();
+    return ;
 }
 
 // Button was clicked
@@ -47,7 +47,7 @@ if (isset($_POST['button']))
 
     // Avoid that refresh button asks for form repost
     header(sprintf("Location: %s", filter_var($_SERVER['PHP_SELF'], FILTER_SANITIZE_STRING)));
-    die();
+    return ;
 }
 
 if (is_null($shared->percentage))

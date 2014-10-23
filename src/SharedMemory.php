@@ -131,7 +131,7 @@ class SharedMemory implements \ArrayAccess
     public function get($property, $default = null)
     {
         $this->storage->openReader();
-        $object = $this->_getObjectSafely('openReader');
+        $object = $this->getObjectSafely('openReader');
         $this->storage->close();
 
         $data = $object->getData();
@@ -189,7 +189,7 @@ class SharedMemory implements \ArrayAccess
     public function set($property, $value)
     {
         $this->storage->openWriter();
-        $object = $this->_getObjectSafely('openWriter');
+        $object = $this->getObjectSafely('openWriter');
         $data = $object->getData();
         $data->{$property} = $value;
         $object->setData($data);
@@ -238,7 +238,7 @@ class SharedMemory implements \ArrayAccess
     public function remove($property)
     {
         $this->storage->openWriter();
-        $object = $this->_getObjectSafely('openWriter');
+        $object = $this->getObjectSafely('openWriter');
         $data = $object->getData();
         if (property_exists($data, $property))
         {
@@ -282,7 +282,7 @@ class SharedMemory implements \ArrayAccess
 
         $this->storage->openWriter();
 
-        $object = $this->_getObjectSafely('openWriter');
+        $object = $this->getObjectSafely('openWriter');
         $object->setLocked(true);
         $object->setTimeout($timeout);
         $object->setInterval($interval);
@@ -303,7 +303,7 @@ class SharedMemory implements \ArrayAccess
     public function unlock()
     {
         $this->storage->openWriter();
-        $object = $this->_getObjectSafely('openWriter');
+        $object = $this->getObjectSafely('openWriter');
         $object->setLocked(false);
         $this->lock = false;
         $this->storage->setObject($object);
@@ -350,7 +350,7 @@ class SharedMemory implements \ArrayAccess
     public function getData()
     {
         $this->storage->openReader();
-        $object = $this->_getObjectSafely('openReader');
+        $object = $this->getObjectSafely('openReader');
         $this->storage->close();
         return $object->getData();
     }
@@ -371,7 +371,7 @@ class SharedMemory implements \ArrayAccess
     public function setData(\stdClass $data)
     {
         $this->storage->openWriter();
-        $object = $this->_getObjectSafely('openWriter');
+        $object = $this->getObjectSafely('openWriter');
         $object->setData($data);
         $this->storage->setObject($object);
         $this->storage->close();
@@ -384,7 +384,7 @@ class SharedMemory implements \ArrayAccess
      * @access protected
      * @return StoredEntity
      */
-    protected function _getObject()
+    protected function getObject()
     {
         $object = $this->storage->getObject();
         if (!($object instanceof StoredEntity))
@@ -402,10 +402,10 @@ class SharedMemory implements \ArrayAccess
      * @return StoredEntity
      * @throws \Exception
      */
-    protected function _getObjectSafely($openCallback)
+    protected function getObjectSafely($openCallback)
     {
         $elapsed = 0;
-        $object = $this->_getObject();
+        $object = $this->getObject();
         if ($this->lock === false)
         {
             while ($object->isLocked())
@@ -413,7 +413,7 @@ class SharedMemory implements \ArrayAccess
                 $this->storage->close();
                 usleep($object->getInterval());
                 $this->storage->{$openCallback}();
-                $object = $this->_getObject();
+                $object = $this->getObject();
                 if ($object->getTimeout() > 0)
                 {
                     $elapsed += $object->getInterval();
