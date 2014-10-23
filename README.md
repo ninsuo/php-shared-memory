@@ -30,7 +30,7 @@ https://github.com/ninsuo/php-shared-memory/releases/tag/v1.5.0
 
 If you're building a real-life project, you'd better use Composer:
 
-1) install Composer
+### Install Composer
 
 If you have curl, you can use:
 
@@ -40,7 +40,7 @@ Else, you can use the PHP method instead:
 
 `php -r "readfile('https://getcomposer.org/installer');" | php`
 
-2) Add the following to your `composer.json`:
+#### Add the following to your `composer.json`:
 
 ```json
 {
@@ -50,7 +50,7 @@ Else, you can use the PHP method instead:
 }
 ```
 
-3) Update
+#### Update
 
 `php composer.phar update`
 
