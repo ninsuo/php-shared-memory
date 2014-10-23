@@ -30,7 +30,7 @@ https://github.com/ninsuo/php-shared-memory/releases/tag/v1.5.0
 
 If you're building a real-life project, you'd better use Composer:
 
-### install Composer
+### Install Composer
 
 If you have curl, you can use:
 
