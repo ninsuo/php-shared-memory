@@ -166,7 +166,7 @@ class SharedMemory implements \ArrayAccess
      *   $shared['data'] = $var;
      *
      * @access public
-     * @param mixed $property
+     * @param mixed $offset
      * @param mixed $value
      * @return $value
      * @throws \Exception
