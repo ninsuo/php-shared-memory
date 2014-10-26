@@ -8,7 +8,7 @@ require(__DIR__ . "/../src/Entity/StoredEntity.php");
 require(__DIR__ . "/../src/Storage/StorageInterface.php");
 require(__DIR__ . "/../src/Storage/StorageFile.php");
 
-//die("Please read warning inside that file and comment this die() before running tests.\n");
+die("Please read warning inside that file and comment this die() before running tests.\n");
 
 /**
  * Test Case for SharedMemory used with StorageFile driver

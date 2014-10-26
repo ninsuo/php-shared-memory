@@ -19,7 +19,7 @@ use Fuz\Component\SharedMemory\Storage\StorageInterface;
  * This class cannot share resources (db connections, file descriptors,
  * socked handles and so on), as serialize() can't.
  *
- * @license http://opensource.org/licenses/bsd-license.html
+ * @license http://opensource.org/licenses/MIT
  * @author Alain Tiemblo <alain@fuz.org>
  * @version 2.0
  */

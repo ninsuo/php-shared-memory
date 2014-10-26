@@ -4,7 +4,7 @@
     "description": "Share variables across multiple PHP apps",
     "keywords": [],
     "homepage": "https://github.com/ninsuo/php-shared-memory",
-    "license": "BSD-2-Clause",
+    "license": "MIT",
     "authors": [
         {
             "name": "Alain Tiemblo",

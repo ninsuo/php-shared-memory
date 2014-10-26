@@ -9,7 +9,7 @@ use Fuz\Component\SharedMemory\Entity\StoredEntity;
  * for sharing. A file, a database, IPCs or whatever resources that
  * can be accessed by N applications without concurrent access.
  *
- * @license http://opensource.org/licenses/bsd-license.html
+ * @license http://opensource.org/licenses/MIT
  * @author Alain Tiemblo <alain@fuz.org>
  * @version 2.0
  */

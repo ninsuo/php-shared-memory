@@ -5,7 +5,7 @@ namespace Fuz\Component\SharedMemory\Entity;
 /**
  * Contains the object that needs to be stored on a shared resource.
  *
- * @license http://opensource.org/licenses/bsd-license.html
+ * @license http://opensource.org/licenses/MIT
  * @author Alain Tiemblo <alain@fuz.org>
  * @version 2.0
  */

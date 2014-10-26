@@ -12,7 +12,7 @@ use Fuz\Component\SharedMemory\Entity\StoredEntity;
  * This class takes all its power if you use in-ram files
  * @see http://www.cyberciti.biz/faq/howto-create-linux-ram-disk-filesystem/
  *
- * @license http://opensource.org/licenses/bsd-license.html
+ * @license http://opensource.org/licenses/MIT
  * @author Alain Tiemblo <alain@fuz.org>
  * @version 2.0
  */
