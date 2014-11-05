@@ -74,6 +74,7 @@ class StorageFile implements StorageInterface
 
         if (flock($fd, LOCK_SH) === false)
         {
+            $this->close();
             throw new \Exception(sprintf("Can't lock '%s' file for reading.", $this->file));
         }
 
@@ -115,6 +116,7 @@ class StorageFile implements StorageInterface
 
         if (flock($fd, LOCK_EX) === false)
         {
+            $this->close();
             throw new \Exception(sprintf("Can't lock '%s' file for writing.", $this->file));
         }
 
