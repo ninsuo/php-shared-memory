@@ -19,7 +19,7 @@ task, and echo $shared->progress in your web app.
 
 Multi task : there is no built-in threads functions in PHP, so if we need to simulate threads, we execute
 several PHP tasks (forks, execs, ...), and keep control on resources and results. But from here, there is
-no way for all children processes to communicate each other. Sync gives you a centralized data pool, where
+no way for all children processes to communicate each other. SharedMemory gives you a centralized data pool, where
 every processes can put about anything.
 
 Installation
@@ -144,7 +144,7 @@ Optimizations
 ---------
 
 Of course, if you have 150 processes working on the same file at the same time, your hard drive will slow down your processes.
-To handle this issue, if you're on a Linux system, you can create a filesystem partition on RAM.
+To handle this issue, if you're on a Linux system, you can create a filesystem partition in RAM.
 Writing into a file stored in RAM will be about as quick as writing in memory.
 
 As root, type the following commands:
