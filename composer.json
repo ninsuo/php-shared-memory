@@ -15,6 +15,8 @@
         "php": ">=5.3.3"
     },
     "autoload": {
-        "psr-4": { "Fuz\\Component\\SharedMemory\\": ["src/"] }
+        "psr-4": {
+            "Fuz\\Component\\SharedMemory\\": "src/Fuz/Component/SharedMemory"
+        }
     }
 }
