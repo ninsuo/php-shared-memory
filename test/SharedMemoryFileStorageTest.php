@@ -3,10 +3,10 @@
 use Fuz\Component\SharedMemory\SharedMemory;
 use Fuz\Component\SharedMemory\Storage\StorageFile;
 
-require(__DIR__ . "/../src/SharedMemory.php");
-require(__DIR__ . "/../src/Entity/StoredEntity.php");
-require(__DIR__ . "/../src/Storage/StorageInterface.php");
-require(__DIR__ . "/../src/Storage/StorageFile.php");
+require(__DIR__ . "/../src/Fuz/Component/SharedMemory/SharedMemory.php");
+require(__DIR__ . "/../src/Fuz/Component/SharedMemory/Entity/StoredEntity.php");
+require(__DIR__ . "/../src/Fuz/Component/SharedMemory/Storage/StorageInterface.php");
+require(__DIR__ . "/../src/Fuz/Component/SharedMemory/Storage/StorageFile.php");
 
 //die("Please read warning inside that file and comment this die() before running tests.\n");
 

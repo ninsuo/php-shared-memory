@@ -11,10 +11,10 @@
  * Should be run using a web browser
  */
 
-require("../src/SharedMemory.php");
-require("../src/Entity/StoredEntity.php");
-require("../src/Storage/StorageInterface.php");
-require("../src/Storage/StorageFile.php");
+require("../src/Fuz/Component/SharedMemory/SharedMemory.php");
+require("../src/Fuz/Component/SharedMemory/Entity/StoredEntity.php");
+require("../src/Fuz/Component/SharedMemory/Storage/StorageInterface.php");
+require("../src/Fuz/Component/SharedMemory/Storage/StorageFile.php");
 
 use Fuz\Component\SharedMemory\SharedMemory;
 use Fuz\Component\SharedMemory\Storage\StorageFile;
