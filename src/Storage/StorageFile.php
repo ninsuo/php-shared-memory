@@ -202,6 +202,18 @@ class StorageFile implements StorageInterface
         }
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function destroy()
+    {
+        $this->close();
+        if ((is_file($this->file)) && (is_writable($this->file)))
+        {
+            unlink($this->file);
+        }
+    }
+
     public function getName()
     {
         return 'file';

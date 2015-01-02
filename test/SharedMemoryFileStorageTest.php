@@ -8,7 +8,7 @@ require(__DIR__ . "/../src/Entity/StoredEntity.php");
 require(__DIR__ . "/../src/Storage/StorageInterface.php");
 require(__DIR__ . "/../src/Storage/StorageFile.php");
 
-die("Please read warning inside that file and comment this die() before running tests.\n");
+//die("Please read warning inside that file and comment this die() before running tests.\n");
 
 /**
  * Test Case for SharedMemory used with StorageFile driver
@@ -548,6 +548,21 @@ class SharedMemoryStorageFileTest extends \PHPUnit_Framework_TestCase
 
         $data->test = "ok";
         $this->assertFalse($shared->has('test'));
+    }
+
+    public function testDestroyStorage()
+    {
+        $file = self::DIR . "/test.sync";
+        $storage = new StorageFile($file);
+        $shared = new SharedMemory($storage);
+        $shared->hello = 'world';
+        $this->assertTrue(file_exists($file));
+        $shared->destroyStorage();
+        $this->assertFalse(file_exists($file));
+        $shared->hello = 'world';
+        $this->assertTrue(file_exists($file));
+        $shared->destroyStorage();
+        $this->assertFalse(file_exists($file));
     }
 
 }

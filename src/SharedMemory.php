@@ -336,6 +336,18 @@ class SharedMemory implements \ArrayAccess
     }
 
     /**
+     * Destroys storage's resource.
+     */
+    public function destroyStorage()
+    {
+        if ($this->lock)
+        {
+            $this->unlock();
+        }
+        $this->storage->destroy();
+    }
+
+    /**
      * Get the whole object, raw, for quicker access to its properties.
      *
      * This class delivers objects designed to be always safely synchronized

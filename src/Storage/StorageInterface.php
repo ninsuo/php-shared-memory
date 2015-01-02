@@ -48,6 +48,12 @@ interface StorageInterface
     public function close();
 
     /**
+     * Destroys storage's resource (file, database
+     * entry...).
+     */
+    public function destroy();
+
+    /**
      * Storage name
      */
     public function getName();
