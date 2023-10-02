@@ -70,7 +70,7 @@ class SharedMemory implements \ArrayAccess
      * @return bool
      * @see \ArrayAccess
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return $this->has($offset);
     }
@@ -83,7 +83,7 @@ class SharedMemory implements \ArrayAccess
      * @return bool
      * @throws \Exception
      */
-    public function has($property)
+    public function has($property): bool
     {
         $test = $this->{$property};
         return isset($test);
@@ -114,7 +114,7 @@ class SharedMemory implements \ArrayAccess
      * @return mixed
      * @throws \Exception
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return $this->get($offset);
     }
@@ -171,10 +171,9 @@ class SharedMemory implements \ArrayAccess
      * @return $value
      * @throws \Exception
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->set($offset, $value);
-        return $value;
     }
 
     /**
@@ -222,7 +221,7 @@ class SharedMemory implements \ArrayAccess
      * @param mixed $offset
      * @throws \Exception
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         $this->remove($offset);
     }
