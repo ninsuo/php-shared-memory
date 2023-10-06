@@ -16,7 +16,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Fuz\\Component\\SharedMemory\\": "src/Fuz/Component/SharedMemory"
+            "Fuz\\Component\\SharedMemory\\": "src/Fuz/Component/SharedMemory",
+            "Tests\\": "test"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.4"
     }
 }

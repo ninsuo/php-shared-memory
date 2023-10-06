@@ -1,14 +1,9 @@
 <?php
 
+require_once __DIR__ . '/../vendor/autoload.php';
+
 use Fuz\Component\SharedMemory\SharedMemory;
 use Fuz\Component\SharedMemory\Storage\StorageFile;
-
-require(__DIR__ . "/../src/Fuz/Component/SharedMemory/SharedMemory.php");
-require(__DIR__ . "/../src/Fuz/Component/SharedMemory/Entity/StoredEntity.php");
-require(__DIR__ . "/../src/Fuz/Component/SharedMemory/Storage/StorageInterface.php");
-require(__DIR__ . "/../src/Fuz/Component/SharedMemory/Storage/StorageFile.php");
-
-die("Please read warning inside that file and comment this die() before running tests.\n");
 
 /**
  * Test Case for SharedMemory used with StorageFile driver
@@ -17,15 +12,13 @@ die("Please read warning inside that file and comment this die() before running 
  * This test case creates a directory in /tmp, check that
  * permissions are granted and the 'sync' directory not
  * already in use.
- *
- * Requires PHPUnit (developped using 3.6.12)
  */
-class SharedMemoryStorageFileTest extends \PHPUnit_Framework_TestCase
+class SharedMemoryFileStorageTest extends \PHPUnit\Framework\TestCase
 {
 
     const DIR = "/tmp/sync";
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!is_dir(self::DIR))
         {
@@ -36,7 +29,7 @@ class SharedMemoryStorageFileTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         // Removes all files and directories inside self::DIR
         $files = new \RecursiveIteratorIterator(
